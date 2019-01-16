@@ -1,0 +1,51 @@
+<div *ngIf="current.city">
+  <div class="wrap-current">
+    <div class="velo-current">
+      <div class="text-center city">
+        {{ current.city.name }}
+      </div>
+
+      <div class="text-center date">
+        {{ current.list[0].dt*1000 | date: 'EEEE, MMMM d, h:mm' }}
+        <!-- Formateo con un pipe el formato fecha y hora que nos devuelve la api-->
+      </div>
+
+<!-- Utilizo de bootstrap las clases no-gutters para quitar los paddings y los margins de sus hijos y py-2 para darle padding en el eje y -->
+      <div class="row no-gutters py-2">
+<!-- añado un span con un *ngIF que muestra el signo + si la temperatura es mayor que 0 -->
+        <div class="col temp"><span *ngIf="current.list[0].temp.day > 0">+</span>{{
+          formatTemp(current.list[0].temp.day) }}<span>°</span>
+        </div>
+
+<!-- Con un ngClass añado una key icon y su valor showIcon que será un boolean para aplicar o no la clase -->
+        <div [ngClass]="{icon:showIcon}">
+<!-- En el img construyo en un string la ruta donde guardo mis propios iconos y aprovecho el nombre de icono de la api -->
+          <img [src]="'../../assets/images/weather/' + current.list[0].weather[0].icon + '.png'" alt="weather icon">
+        </div>
+
+        <div class="col features align-self-center">
+          <div class="row no-gutters">
+            <div class="col-2"><i class="fas fa-thermometer-three-quarters fa-fw"></i></div>
+<!-- Introduzco una función para pasar de hpa a mmhg la presión que recibo de la api -->
+            <div class="col font-features">{{ parseHpaToMmhg(current.list[0].pressure) }} mm hg</div>
+          </div>
+
+          <div class="row no-gutters">
+            <div class="col-2"><i class="far fa-circle fa-fw"></i></div>
+            <div class="col font-features">{{ current.list[0].humidity }} % humidity</div>
+          </div>
+
+          <div class="row no-gutters">
+            <div class="col-2"><i class="fas fa-wind fa-fw"></i></div>
+<!-- Incluyo una función para que muestre la dirección del viento según los grados que reciba de la api -->
+            <div class="col font-features">{{ current.list[0].speed }}m/s {{ parseWind(current.list[0].deg) }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center">
+        <span class="curr-desc">{{ current.list[0].weather[0].description }}</span>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,51 @@
+.day {
+  font-size: 12px;
+  color: white;
+  padding: 10px 2px;
+}
+
+.day div img {
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  zoom: 70%;
+}
+
+/* Simple animación hover para desktop */
+.day:hover .icon-forecast {
+  transform: scale(1.2);
+}
+
+.clouds {
+  border-top: 2px solid lightblue;
+  background: rgba(124, 121, 121, 0.5);
+}
+
+.clear {
+  border-top: 2px solid yellow;
+  background: rgba(248, 252, 202, 0.5);
+}
+
+.atmosphere {
+  border-top: 2px solid brown;
+  background: rgba(223, 167, 167, 0.5);
+}
+
+.snow {
+  border-top: 2px solid white;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.rain {
+  border-top: 2px solid blue;
+  background: rgba(164, 224, 252, 0.5);
+}
+
+.drizzle {
+  border-top: 2px solid lightcoral;
+  background: rgba(252, 205, 228, 0.5);
+}
+
+.thunderstorm {
+  border-top: 2px solid darkorchid;
+  background: rgba(41, 41, 41, 0.5);
+}

@@ -1,0 +1,15 @@
+<div>
+  <div class="row no-gutters text-center">
+<!-- Itero el forecast que es un array de días -->
+    <div class="col" *ngFor="let day of forecast">
+<!-- Aplico las clases day + la clase cuyo nombre cojo de la propiedad main del objeto weather (están reflejadas en el css (clear, clouds, atmosphere...etc)-->
+      <div [ngClass]="'day ' + day.weather[0].main.toLowerCase()">
+<!-- recibo la fecha (dt) en segundos y lo paso a milisegundos. Le doy formato con el pipe para conseguir el nombre del día y en minúsculas -->
+        <div class="mb-2"> {{ day.dt*1000 | date: 'EEEE' | lowercase }} </div>
+<!-- a la imagen le paso la función linkIcon (que devuelve el string ya formado de la ruta y se le pasa el day que viene del *ngFor de arriba ) -->
+        <div class="mb-2"><img class="icon-forecast" [src]="linkIcon(day)"></div>
+        <div><span *ngIf="day.temp.day > 0">+</span>{{ dayTemp(day.temp.day) }}°</div>
+      </div>
+    </div>
+  </div>
+</div>

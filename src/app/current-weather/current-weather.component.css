@@ -1,0 +1,58 @@
+.wrap-current {
+  color: white;
+  background-image: url('../../assets/images/background.jpeg');
+  background-size: cover;
+}
+
+.velo-current {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.75);
+  padding: 15px 0;
+}
+
+.city {
+  font-size: 1.5rem;
+}
+
+.date {
+  font-size: .8rem;
+}
+
+.temp {
+  text-align: right;
+  font-size: 56px;
+}
+
+.icon {
+  zoom: 220%;
+  transform: scale(0);
+  animation: pulso 2s;
+  animation-fill-mode: forwards;
+}
+/* Pequeña animación para escalar el icono*/
+@keyframes pulso{
+  0%{
+    transform: scale(0.5);
+  }
+  50%{
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.features {
+  text-align: left;
+}
+
+.font-features {
+  font-size: .8rem;
+  color: grey;
+}
+
+.curr-desc {
+  padding: 4px 8px;
+  background: rgba(68, 67, 67, 0.58);
+  font-size: .8rem;
+}

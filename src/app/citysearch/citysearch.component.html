@@ -1,0 +1,8 @@
+<form class="mt-3 text-center">
+  <input class="" placeholder="search city..." [formControl]="search">
+  <div class="wrapper">
+	<div class="error" *ngIf="search.invalid">{{ getErrorMessage() }}</div>
+  </div>
+</form>
+
+<!-- Simple *ngIf para mostrar el error al recibir el input -->
